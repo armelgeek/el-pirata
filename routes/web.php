@@ -11,6 +11,12 @@ use App\Http\Controllers\AchievementController;
 use App\Http\Controllers\Auth\VerifyEmailController;
 use App\Http\Controllers\Auth\GoogleController;
 
+
+
+Route::post('/register', 'App\Http\Controllers\RegisterController@register');
+Route::post('/login', 'App\Http\Controllers\LoginController@login');
+Route::get('/user', 'App\Http\Controllers\UserController@getUserDetails')->middleware('auth:sanctum');
+
 // ✅ Page d'accueil
 Route::get('/', function () {
     return view('welcome');
@@ -63,8 +69,8 @@ Route::middleware('guest')->group(function () {
     Route::view('/register', 'auth.register')->name('register');
     Route::post('/register', [AuthController::class, 'register']);
 
-    Route::view('/login', 'auth.login')->name('login');
-    Route::post('/login', [AuthController::class, 'login']);
+    //Route::view('/login', 'auth.login')->name('login');
+    //Route::post('/login', [AuthController::class, 'login']);
 
     // ✅ Connexion via Google OAuth
     Route::get('auth/google', [GoogleController::class, 'redirectToGoogle'])->name('auth.google');
