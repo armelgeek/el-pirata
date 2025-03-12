@@ -6,7 +6,8 @@ use Illuminate\Database\Seeder;
 use Database\Seeders\EnigmaSeeder;
 use Database\Seeders\ChapterSeeder;
 use Database\Seeders\InitialDataSeeder;
-
+use Database\Seeders\RolesAndPermissionsSeeder;
+use Database\Seeders\AdminUserSeeder;
 class DatabaseSeeder extends Seeder
 {
     /**
@@ -18,6 +19,9 @@ class DatabaseSeeder extends Seeder
             EnigmaSeeder::class,
             ChapterSeeder::class,
             InitialDataSeeder::class,
+            RolesAndPermissionsSeeder::class,
+            AdminUserSeeder::class,
+
         ]);
     }
 }

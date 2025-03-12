@@ -5,91 +5,204 @@
         "version": "1.0.0"
     },
     "paths": {
-        "/api/login": {
+        "/api/v1/login": {
             "post": {
-                "summary": "Authenticate user and generate JWT token",
-                "operationId": "c5e838284c7f343f0e5e5fd589161c96",
-                "parameters": [
-                    {
-                        "name": "email",
-                        "in": "query",
-                        "description": "User's email",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        }
-                    },
-                    {
-                        "name": "password",
-                        "in": "query",
-                        "description": "User's password",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
+                "tags": [
+                    "Authentification"
+                ],
+                "summary": "Connecte l'utilisateur et génère un token JWT",
+                "description": "Connecte l'utilisateur avec l'email et le mot de passe pour obtenir un token JWT",
+                "operationId": "51f780ce4c3e87406c8135bba9a45040",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "email",
+                                    "password"
+                                ],
+                                "properties": {
+                                    "email": {
+                                        "type": "string",
+                                        "format": "email",
+                                        "example": "admin@elpirata.fr"
+                                    },
+                                    "password": {
+                                        "type": "string",
+                                        "format": "password",
+                                        "example": "admin123"
+                                    }
+                                },
+                                "type": "object"
+                            }
                         }
                     }
-                ],
+                },
                 "responses": {
                     "200": {
-                        "description": "Login successful"
+                        "description": "Connexion réussie",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "access_token": {
+                                            "type": "string",
+                                            "example": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9..."
+                                        },
+                                        "refresh_token": {
+                                            "type": "string",
+                                            "example": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9..."
+                                        },
+                                        "token_type": {
+                                            "type": "string",
+                                            "example": "bearer"
+                                        },
+                                        "expires_in": {
+                                            "type": "integer",
+                                            "example": 3600
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
                     },
                     "401": {
-                        "description": "Invalid credentials"
+                        "description": "Non autorisé",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "error": {
+                                            "type": "string",
+                                            "example": "Non autorisé"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
                     }
                 }
             }
         },
-        "/api/register": {
-            "post": {
-                "summary": "Register a new user",
-                "description": "* @OA\\Post(\n    path=\"/api/register\",\n    summary=\"Register a new user\",",
-                "operationId": "32f8461cd646d6974ad63731d3dcce4a",
-                "parameters": [
-                    {
-                        "name": "name",
-                        "in": "query",
-                        "description": "User's name",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        }
-                    },
-                    {
-                        "name": "email",
-                        "in": "query",
-                        "description": "User's email",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        }
-                    },
-                    {
-                        "name": "password",
-                        "in": "query",
-                        "description": "User's password",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        }
-                    }
-                ],
-                "responses": {
-                    "201": {
-                        "description": "User registered successfully"
-                    },
-                    "422": {
-                        "description": "Validation errors"
-                    }
-                }
-            }
-        },
-        "/api/user": {
+        "/api/v1/me": {
             "get": {
-                "summary": "Get logged-in user details",
-                "operationId": "68f71ba285837ee66901e2681a219252",
+                "tags": [
+                    "Authentification"
+                ],
+                "summary": "Obtenir les détails de l'utilisateur authentifié",
+                "description": "Renvoie les informations de l'utilisateur actuellement authentifié",
+                "operationId": "dcc5b47aad92564ebe60ab7622f696fd",
                 "responses": {
                     "200": {
-                        "description": "Success"
+                        "description": "Opération réussie",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "id": {
+                                            "type": "integer",
+                                            "example": 1
+                                        },
+                                        "name": {
+                                            "type": "string",
+                                            "example": "Jean Dupont"
+                                        },
+                                        "email": {
+                                            "type": "string",
+                                            "format": "email",
+                                            "example": "jean@exemple.com"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Non authentifié"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/v1/logout": {
+            "post": {
+                "tags": [
+                    "Authentification"
+                ],
+                "summary": "Déconnexion de l'utilisateur",
+                "description": "Invalide le token JWT actuel",
+                "operationId": "bebbed0cb7f4f5859d4050d2ac8c80c0",
+                "responses": {
+                    "200": {
+                        "description": "Déconnexion réussie",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Déconnexion réussie"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Non authentifié"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/v1/refresh": {
+            "post": {
+                "tags": [
+                    "Authentification"
+                ],
+                "summary": "Rafraîchir le token JWT",
+                "description": "Obtenir un nouveau token JWT en utilisant le token actuel",
+                "operationId": "ba72f9fbeba34b6147f43def242bed58",
+                "responses": {
+                    "200": {
+                        "description": "Token rafraîchi avec succès",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "access_token": {
+                                            "type": "string",
+                                            "example": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9..."
+                                        },
+                                        "token_type": {
+                                            "type": "string",
+                                            "example": "bearer"
+                                        },
+                                        "expires_in": {
+                                            "type": "integer",
+                                            "example": 3600
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Non authentifié"
                     }
                 },
                 "security": [
@@ -108,5 +221,11 @@
                 "scheme": "bearer"
             }
         }
-    }
+    },
+    "tags": [
+        {
+            "name": "Authentification",
+            "description": "Authentification"
+        }
+    ]
 }

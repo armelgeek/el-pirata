@@ -14,6 +14,7 @@ use App\Models\Enigma;
 use App\Models\Chapter;
 use App\Models\Achievement;
 use App\Models\UserProgressChapter;
+use App\Models\Role;
 
 class User extends Authenticatable implements MustVerifyEmail
 {
@@ -131,5 +132,53 @@ class User extends Authenticatable implements MustVerifyEmail
     public function getJWTCustomClaims()
     {
         return [];
+    }
+
+    /**
+     * Les rôles associés à l'utilisateur.
+     */
+    public function roles()
+    {
+        return $this->belongsToMany(Role::class);
+    }
+
+    /**
+     * Vérifie si l'utilisateur a un rôle spécifique.
+     *
+     * @param string|Role $role
+     * @return bool
+     */
+    public function hasRole($role)
+    {
+        if (is_string($role)) {
+            return $this->roles->contains('slug', $role);
+        }
+        return !!$role->intersect($this->roles)->count();
+    }
+
+    /**
+     * Vérifie si l'utilisateur a une permission spécifique via ses rôles.
+     *
+     * @param string|Permission $permission
+     * @return bool
+     */
+    public function hasPermission($permission)
+    {
+        foreach ($this->roles as $role) {
+            if ($role->hasPermission($permission)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    /**
+     * Vérifie si l'utilisateur est un administrateur.
+     *
+     * @return bool
+     */
+    public function isAdmin()
+    {
+        return $this->hasRole('admin');
     }
 }

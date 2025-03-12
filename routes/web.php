@@ -13,16 +13,19 @@ use App\Http\Controllers\Auth\GoogleController;
 
 
 
-Route::post('/register', 'App\Http\Controllers\RegisterController@register');
-Route::post('/login', 'App\Http\Controllers\LoginController@login');
-Route::get('/user', 'App\Http\Controllers\UserController@getUserDetails')->middleware('auth:sanctum');
+Route::post('/login', 'App\Http\Controllers\AuthentificationController@login');
+Route::post('/register', 'App\Http\Controllers\AuthentificationController@register');
+Route::post('/refresh', 'App\Http\Controllers\AuthentificationController@refresh');
+Route::post('/logout', 'App\Http\Controllers\AuthentificationController@logout')->middleware('auth:sanctum');
+Route::get('/me', 'App\Http\Controllers\AuthentificationController@me')->middleware('auth:sanctum');
+
 
 // ✅ Page d'accueil
 Route::get('/', function () {
     return view('welcome');
 });
 // routes/web.php
-Route::get('/contacte', function () {
+/**Route::get('/contacte', function () {
     return view('contacte'); // Créez une vue 'contacte.blade.php'
 });
 Route::get('/FAQ', function () {
@@ -66,8 +69,8 @@ Route::get('/connexion', function () {
 
 // ✅ Routes d'authentification pour invités
 Route::middleware('guest')->group(function () {
-    Route::view('/register', 'auth.register')->name('register');
-    Route::post('/register', [AuthController::class, 'register']);
+    //Route::view('/register', 'auth.register')->name('register');
+    //Route::post('/register', [AuthController::class, 'register']);
 
     //Route::view('/login', 'auth.login')->name('login');
     //Route::post('/login', [AuthController::class, 'login']);
@@ -139,3 +142,4 @@ Route::view('/terms', 'legal.terms')->name('terms');
 
 // ✅ Charger les routes d'authentification par défaut de Laravel (si utilisées)
 require __DIR__ . '/auth.php';
+**/
