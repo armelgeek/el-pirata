@@ -1,22 +1,15 @@
 <?php
 
-use App\Http\Controllers\Auth\AuthenticatedSessionController;
-use App\Http\Controllers\Auth\RegisteredUserController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AuthentificationController;
 
-Route::middleware('guest')->group(function () {
-    Route::get('register', [RegisteredUserController::class, 'create'])
-                ->name('register');
+// Routes publiques
+Route::post('login', [AuthentificationController::class, 'login']);
+Route::post('register', [AuthentificationController::class, 'register']);
+Route::post('refresh', [AuthentificationController::class, 'refresh']);
 
-    Route::post('register', [RegisteredUserController::class, 'store']);
-
-    Route::get('login', [AuthenticatedSessionController::class, 'create'])
-                ->name('login');
-
-    Route::post('login', [AuthenticatedSessionController::class, 'store']);
-});
-
-Route::middleware('auth')->group(function () {
-    Route::post('logout', [AuthenticatedSessionController::class, 'destroy'])
-                ->name('logout');
+// Routes protégées
+Route::middleware('auth:api')->group(function () {
+    Route::post('logout', [AuthentificationController::class, 'logout']);
+    Route::get('me', [AuthentificationController::class, 'me']);
 });

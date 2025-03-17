@@ -5,14 +5,14 @@
         "version": "1.0.0"
     },
     "paths": {
-        "/api/v1/login": {
+        "/api/auth/login": {
             "post": {
                 "tags": [
                     "Authentification"
                 ],
                 "summary": "Connecte l'utilisateur et génère un token JWT",
                 "description": "Connecte l'utilisateur avec l'email et le mot de passe pour obtenir un token JWT",
-                "operationId": "51f780ce4c3e87406c8135bba9a45040",
+                "operationId": "6722e46f789eb246c9c35010d18e84c9",
                 "requestBody": {
                     "required": true,
                     "content": {
@@ -87,14 +87,14 @@
                 }
             }
         },
-        "/api/v1/me": {
+        "/me": {
             "get": {
                 "tags": [
                     "Authentification"
                 ],
                 "summary": "Obtenir les détails de l'utilisateur authentifié",
                 "description": "Renvoie les informations de l'utilisateur actuellement authentifié",
-                "operationId": "dcc5b47aad92564ebe60ab7622f696fd",
+                "operationId": "4feb90af93135f1ad09b16592df572de",
                 "responses": {
                     "200": {
                         "description": "Opération réussie",
@@ -132,14 +132,14 @@
                 ]
             }
         },
-        "/api/v1/logout": {
+        "/logout": {
             "post": {
                 "tags": [
                     "Authentification"
                 ],
                 "summary": "Déconnexion de l'utilisateur",
                 "description": "Invalide le token JWT actuel",
-                "operationId": "bebbed0cb7f4f5859d4050d2ac8c80c0",
+                "operationId": "7e9f9db6e2e422e5256edf45c8cd80f2",
                 "responses": {
                     "200": {
                         "description": "Déconnexion réussie",
@@ -168,14 +168,14 @@
                 ]
             }
         },
-        "/api/v1/refresh": {
+        "/refresh": {
             "post": {
                 "tags": [
                     "Authentification"
                 ],
                 "summary": "Rafraîchir le token JWT",
                 "description": "Obtenir un nouveau token JWT en utilisant le token actuel",
-                "operationId": "ba72f9fbeba34b6147f43def242bed58",
+                "operationId": "fb6be3554bc44a286c2f914611237886",
                 "responses": {
                     "200": {
                         "description": "Token rafraîchi avec succès",

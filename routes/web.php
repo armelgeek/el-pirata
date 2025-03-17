@@ -13,12 +13,6 @@ use App\Http\Controllers\Auth\GoogleController;
 
 
 
-Route::post('/login', 'App\Http\Controllers\AuthentificationController@login');
-Route::post('/register', 'App\Http\Controllers\AuthentificationController@register');
-Route::post('/refresh', 'App\Http\Controllers\AuthentificationController@refresh');
-Route::post('/logout', 'App\Http\Controllers\AuthentificationController@logout')->middleware('auth:sanctum');
-Route::get('/me', 'App\Http\Controllers\AuthentificationController@me')->middleware('auth:sanctum');
-
 
 // ✅ Page d'accueil
 Route::get('/', function () {
@@ -141,5 +135,5 @@ Route::view('/privacy-policy', 'legal.privacy-policy')->name('privacy-policy');
 Route::view('/terms', 'legal.terms')->name('terms');
 
 // ✅ Charger les routes d'authentification par défaut de Laravel (si utilisées)
-require __DIR__ . '/auth.php';
 **/
+require __DIR__ . '/auth.php';

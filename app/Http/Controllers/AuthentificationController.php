@@ -27,7 +27,7 @@ class AuthentificationController extends Controller
 
     /**
      * @OA\Post(
-     *     path="/api/v1/login",
+     *     path="/api/auth/login",
      *     tags={"Authentification"},
      *     summary="Connecte l'utilisateur et génère un token JWT",
      *     description="Connecte l'utilisateur avec l'email et le mot de passe pour obtenir un token JWT",
@@ -83,7 +83,7 @@ class AuthentificationController extends Controller
 
     /**
      * @OA\Get(
-     *     path="/api/v1/me",
+     *     path="/me",
      *     tags={"Authentification"},
      *     summary="Obtenir les détails de l'utilisateur authentifié",
      *     description="Renvoie les informations de l'utilisateur actuellement authentifié",
@@ -111,7 +111,7 @@ class AuthentificationController extends Controller
 
     /**
      * @OA\Post(
-     *     path="/api/v1/logout",
+     *     path="/logout",
      *     tags={"Authentification"},
      *     summary="Déconnexion de l'utilisateur",
      *     description="Invalide le token JWT actuel",
@@ -138,7 +138,7 @@ class AuthentificationController extends Controller
 
     /**
      * @OA\Post(
-     *     path="/api/v1/refresh",
+     *     path="/refresh",
      *     tags={"Authentification"},
      *     summary="Rafraîchir le token JWT",
      *     description="Obtenir un nouveau token JWT en utilisant le token actuel",
