@@ -129,91 +129,94 @@
     <!-- ============================== -->
     <!-- HEADER -->
     <!-- ============================== -->
-    
+
 
 
     <header class="bg-[#000000] shadow fixed w-full z-50 font-merienda">
         <!-- px-3 = padding horizontal de 0.75rem -->
         <div class="container mx-auto px-3 py-4 flex items-center justify-between">
-        
-        <!-- Conteneur flex pour : (1) bouton burger, (2) "El", (3) "Pirata" -->
-        <!-- space-x-3 = espacement de 0.75rem entre les éléments -->
-        <div class="flex items-center space-x-3">
-            
-            <!-- Conteneur avec ml-3 pour ajouter un espacement supplémentaire avant le bouton burger -->
-            <div class="ml-3">
-                <!-- Bouton Burger -->
-                <div x-data="{ open: false }">
-                    <button @click="open = !open" class="text-[36px] focus:outline-none text-white">
-                        <i class="fas fa-bars"></i>
-                    </button>
-                    
-                    <!-- Menu Mobile & Desktop -->
-                    <div x-show="open" @click.outside="open = false"
-                         class="absolute top-16 left-0 w-screen bg-[#1f1512] shadow-lg py-4 px-6
+
+            <!-- Conteneur flex pour : (1) bouton burger, (2) "El", (3) "Pirata" -->
+            <!-- space-x-3 = espacement de 0.75rem entre les éléments -->
+            <div class="flex items-center space-x-3">
+
+                <!-- Conteneur avec ml-3 pour ajouter un espacement supplémentaire avant le bouton burger -->
+                <div class="ml-3">
+                    <!-- Bouton Burger -->
+                    <div x-data="{ open: false }">
+                        <button @click="open = !open" class="text-[36px] focus:outline-none text-white">
+                            <i class="fas fa-bars"></i>
+                        </button>
+
+                        <!-- Menu Mobile & Desktop -->
+                        <div x-show="open" @click.outside="open = false"
+                            class="absolute top-16 left-0 w-screen bg-[#1f1512] shadow-lg py-4 px-6
                                 lg:w-64 lg:left-2 lg:right-2 z-50 transition-all duration-300 ease-in-out"
-                         x-transition:enter="transition ease-out duration-300"
-                         x-transition:enter-start="opacity-0 transform scale-90"
-                         x-transition:enter-end="opacity-100 transform scale-100"
-                         x-transition:leave="transition ease-in duration-200"
-                         x-transition:leave-start="opacity-100 transform scale-100"
-                         x-transition:leave-end="opacity-0 transform scale-90">
-                        <!-- Liens du menu -->
-                        <a href="#hero" class="block px-4 py-2 hover:bg-[#E3342F] transition">Accueil</a>
-                        <a href="#about" class="block px-4 py-2 hover:bg-[#E3342F] transition">Profil</a>
-                        <a href="#services" class="block px-4 py-2 hover:bg-[#E3342F] transition">Les chasses au trésor</a>
-                        <a href="#gallery" class="block px-4 py-2 hover:bg-[#E3342F] transition">Commencer mon aventure</a>
-                        <a href="#contact" class="block px-4 py-2 hover:bg-[#E3342F] transition">Avis</a>
-                        <a href="/CGV" class="block px-4 py-2 hover:bg-[#E3342F] transition">CGV</a>
-                        <a href="/CGU" class="block px-4 py-2 hover:bg-[#E3342F] transition">CGU</a>
-                        <a href="/Remboursement" class="block px-4 py-2 hover:bg-[#E3342F] transition">Remboursement</a>
-                        <a href="/regles" class="block px-4 py-2 hover:bg-[#E3342F] transition">Règle du jeu</a>
-                        <a href="/nous" class="block px-4 py-2 hover:bg-[#E3342F] transition">Qui sommes-nous</a>
-                        <a href="/FAQ" class="block px-4 py-2 hover:bg-[#E3342F] transition">FAQ</a>
-                        <a href="/contacte" class="block px-4 py-2 hover:bg-[#E3342F] transition">Contact</a>
-                        <a href="#contact" class="block px-4 py-2 hover:bg-[#E3342F] transition">Se désinscrire</a>
+                            x-transition:enter="transition ease-out duration-300"
+                            x-transition:enter-start="opacity-0 transform scale-90"
+                            x-transition:enter-end="opacity-100 transform scale-100"
+                            x-transition:leave="transition ease-in duration-200"
+                            x-transition:leave-start="opacity-100 transform scale-100"
+                            x-transition:leave-end="opacity-0 transform scale-90">
+                            <!-- Liens du menu -->
+                            <a href="#hero" class="block px-4 py-2 hover:bg-[#E3342F] transition">Accueil</a>
+                            <a href="#about" class="block px-4 py-2 hover:bg-[#E3342F] transition">Profil</a>
+                            <a href="#services" class="block px-4 py-2 hover:bg-[#E3342F] transition">Les chasses au trésor</a>
+                            <a href="#gallery" class="block px-4 py-2 hover:bg-[#E3342F] transition">Commencer mon aventure</a>
+                            <a href="#contact" class="block px-4 py-2 hover:bg-[#E3342F] transition">Avis</a>
+                            <a href="/CGV" class="block px-4 py-2 hover:bg-[#E3342F] transition">CGV</a>
+                            <a href="/CGU" class="block px-4 py-2 hover:bg-[#E3342F] transition">CGU</a>
+                            <a href="/Remboursement" class="block px-4 py-2 hover:bg-[#E3342F] transition">Remboursement</a>
+                            <a href="/regles" class="block px-4 py-2 hover:bg-[#E3342F] transition">Règle du jeu</a>
+                            <a href="/nous" class="block px-4 py-2 hover:bg-[#E3342F] transition">Qui sommes-nous</a>
+                            <a href="/FAQ" class="block px-4 py-2 hover:bg-[#E3342F] transition">FAQ</a>
+                            <a href="/contacte" class="block px-4 py-2 hover:bg-[#E3342F] transition">Contact</a>
+                            <a href="#contact" class="block px-4 py-2 hover:bg-[#E3342F] transition">Se désinscrire</a>
+                        </div>
                     </div>
                 </div>
-            </div>
-            
-            <!-- "El" en blanc -->
-            <span class="text-[36px] font-merienda text-white font-bold"> <!-- Ajouté font-bold pour correspondre au style -->
-                El
-            </span>
-            
-            <!-- "Pirata" en rouge -->
-            <span class="text-[36px] font-merienda-black text-[#FF1818] font-bold">
-                Pirata
-            </span>
-        </div>
-        
-        <!-- Partie droite : icône utilisateur & drapeau -->
-        <div class="flex items-center space-x-6">
-            <!-- Icône utilisateur -->
-            <a href="/connexion" class="w-5 h-5 flex items-center">
-                <i class="far fa-user text-white text-lg"></i>
-            </a>
-            <!-- Drapeau + Texte FR -->
-            <div class="flex items-center space-x-2">
-                <img src="https://upload.wikimedia.org/wikipedia/en/c/c3/Flag_of_France.svg" class="w-5 h-5" alt="FR">
-                <span class="text-white font-bold">FR</span>
-            </div>
-        </div>
-    </div>
-    <!-- Ligne fine en bas -->
-    <div class="border-t border-white"></div>
-</header>
 
-<style>
-    /* Ajustement pour assurer que les éléments sont nets et bien définis */
-    .font-merienda {
-        font-family: 'Merienda', cursive; /* Assure l'utilisation de la police Merienda */
-    }
-    /* Supprimer les marges ou espacements inutiles pour un alignement précis */
-    header span {
-        line-height: 1; /* Pour éviter des écarts verticaux inutiles */
-    }
-</style>
+                <!-- "El" en blanc -->
+                <span class="text-[36px] font-merienda text-white font-bold"> <!-- Ajouté font-bold pour correspondre au style -->
+                    El
+                </span>
+
+                <!-- "Pirata" en rouge -->
+                <span class="text-[36px] font-merienda-black text-[#FF1818] font-bold">
+                    Pirata
+                </span>
+            </div>
+
+            <!-- Partie droite : icône utilisateur & drapeau -->
+            <div class="flex items-center space-x-6">
+                <!-- Icône utilisateur -->
+                <a href="/connexion" class="w-5 h-5 flex items-center">
+                    <i class="far fa-user text-white text-lg"></i>
+                </a>
+                <!-- Drapeau + Texte FR -->
+                <div class="flex items-center space-x-2">
+                    <img src="https://upload.wikimedia.org/wikipedia/en/c/c3/Flag_of_France.svg" class="w-5 h-5" alt="FR">
+                    <span class="text-white font-bold">FR</span>
+                </div>
+            </div>
+        </div>
+        <!-- Ligne fine en bas -->
+        <div class="border-t border-white"></div>
+    </header>
+
+    <style>
+        /* Ajustement pour assurer que les éléments sont nets et bien définis */
+        .font-merienda {
+            font-family: 'Merienda', cursive;
+            /* Assure l'utilisation de la police Merienda */
+        }
+
+        /* Supprimer les marges ou espacements inutiles pour un alignement précis */
+        header span {
+            line-height: 1;
+            /* Pour éviter des écarts verticaux inutiles */
+        }
+    </style>
 
 
 
@@ -378,105 +381,128 @@
 
 
 
- 
- 
- 
- 
- 
- 
- 
-     <section class="py-8 md:py-16 bg-[#000000] font-merienda">
+
+
+
+
+
+
+
+    <section class="py-8 md:py-16 bg-[#000000] font-merienda">
         <div class="container mx-auto px-4">
             <h2 class="text-white text-center text-xl lg:text-2xl md:text-2xl font-merienda mb-10">
                 Inscris-toi vite à la prochaine <br> <span class="text-red-500">chasse au trésor !</span>
             </h2>
-    
+
             <div class="relative overflow-hidden font-rubik">
                 <div id="carousel" class="flex transition-transform duration-500 ease-in-out"></div>
-    
+
                 <button id="prev" class="absolute left-[-3px] top-1/2 transform -translate-y-1/2 border-2 border-[#EB0000] rounded-full w-10 h-10 flex items-center justify-center transition-all duration-300 ">
                     <i class="fas fa-chevron-left text-[#EB0000] "></i>
                 </button>
-    
+
                 <button id="next" class="absolute right-[-1px] top-1/2 transform -translate-y-1/2 border-2 border-[#EB0000] rounded-full w-10 h-10 flex items-center justify-center transition-all duration-300  ">
                     <i class="fas fa-chevron-right text-[#EB0000]"></i>
                 </button>
-    
+
                 <div class="flex justify-center space-x-2 mt-6 sm:mt-8" id="indicators">
                     @for ($i = 0; $i < 6; $i++)
                         <button class="w-2 h-2 sm:w-3 sm:h-3 rounded-full bg-gray-300  transition-colors" data-slide="{{ $i }}"></button>
-                    @endfor
+                        @endfor
                 </div>
             </div>
         </div>
-    
+
         <style>
             .participer-button {
                 font-family: 'Rubik', sans-serif;
                 font-size: 15px;
             }
-    
+
             #carousel {
                 display: flex;
                 transition: transform 0.5s ease-in-out;
             }
-    
+
             .active-slide {
                 transform: scale(1.1);
                 z-index: 10;
                 transition: transform 0.5s ease;
             }
-    
+
             .inactive-slide {
                 transform: scale(0.95);
                 transition: transform 0.5s ease;
             }
-    
-            #prev i, #next i {
+
+            #prev i,
+            #next i {
                 transition: color 0.3s ease;
             }
-            #prev:hover i, #next:hover i {
+
+            #prev:hover i,
+            #next:hover i {
                 color: white;
             }
-    
+
             @media (max-width: 639px) {
-                #carousel > div {
+                #carousel>div {
                     width: 100%;
                 }
+
                 .inactive-slide {
                     transform: scale(1);
                 }
             }
-    
+
             @media (min-width: 640px) {
-                #carousel > div {
+                #carousel>div {
                     width: 33.333%;
                 }
             }
         </style>
-    
+
         <script>
             const imageBaseUrl = "{{ asset('images') }}";
-            const slideData = [
-                { icon: 'fa-user', title: 'Chasse Physique', extra: '' },
-                { 
-                    icon: 'fa-calendar-alt', 
-                    title: 'Chasse au trésor', 
-                    extra: '<div class="text-lg">15 Février 2025</div><div class="text-red-500 text-3xl font-extrabold">5.000.000€</div>' 
+            const slideData = [{
+                    icon: 'fa-user',
+                    title: 'Chasse Physique',
+                    extra: ''
                 },
-                { icon: 'fa-laptop', title: 'Chasse Numérique', extra: '' },
-                { icon: 'fa-map', title: 'Chasse Aventure', extra: '' },
-                { icon: 'fa-trophy', title: 'Chasse Compétition', extra: '' },
-                { icon: 'fa-gem', title: 'Chasse Précieuse', extra: '' }
+                {
+                    icon: 'fa-calendar-alt',
+                    title: 'Chasse au trésor',
+                    extra: '<div class="text-lg">15 Février 2025</div><div class="text-red-500 text-3xl font-extrabold">5.000.000€</div>'
+                },
+                {
+                    icon: 'fa-laptop',
+                    title: 'Chasse Numérique',
+                    extra: ''
+                },
+                {
+                    icon: 'fa-map',
+                    title: 'Chasse Aventure',
+                    extra: ''
+                },
+                {
+                    icon: 'fa-trophy',
+                    title: 'Chasse Compétition',
+                    extra: ''
+                },
+                {
+                    icon: 'fa-gem',
+                    title: 'Chasse Précieuse',
+                    extra: ''
+                }
             ];
-    
+
             const carousel = document.getElementById('carousel');
             const indicators = document.querySelectorAll('#indicators button');
             let currentIndex = 0;
             let isAnimating = false;
             const totalSlides = 6;
             let visibleSlides = window.innerWidth < 640 ? 1 : 3;
-    
+
             function generateSlides() {
                 carousel.innerHTML = '';
                 const slidesToShow = totalSlides + visibleSlides * 2;
@@ -487,21 +513,23 @@
                     slideElement.className = 'flex-shrink-0 w-full md:w-1/3 p-4';
                     const imageUrl = `${imageBaseUrl}/carte${(idx % 3) + 1}.jpg`;
                     slideElement.innerHTML = `
-                        <div class="relative bg-cover bg-center rounded-2xl shadow-lg border border-gray-500 overflow-hidden h-96 flex flex-col items-center justify-center text-white"
-                            style="background-image: url('${imageUrl}');">
-                            <div class="absolute inset-0 bg-black opacity-50"></div>
-                            <div class="relative text-center">
-                                <i class="fas ${slide.icon} text-4xl mb-2"></i>
-                                <div class="text-2xl font-bold">${slide.title}</div>
-                                ${slide.extra}
-                                <button class="participer-button mt-4 bg-red-500 text-white py-2 px-6 rounded-full text-lg font-semibold shadow-md hover:bg-red-700 transition font-rubik">PARTICIPER</button>
+                        <a href="/appele">
+                            <div class="relative bg-cover bg-center rounded-2xl shadow-lg border border-gray-500 overflow-hidden h-96 flex flex-col items-center justify-center text-white"
+                                style="background-image: url('${imageUrl}');">
+                                <div class="absolute inset-0 bg-black opacity-50"></div>
+                                <div class="relative text-center">
+                                    <i class="fas ${slide.icon} text-4xl mb-2"></i>
+                                    <div class="text-2xl font-bold">${slide.title}</div>
+                                    ${slide.extra}
+                                    <button class="participer-button mt-4 bg-red-500 text-white py-2 px-6 rounded-full text-lg font-semibold shadow-md hover:bg-red-700 transition font-rubik">PARTICIPER</button>
+                                </div>
                             </div>
-                        </div>
+                        </a>
                     `;
                     carousel.appendChild(slideElement);
                 }
             }
-    
+
             window.addEventListener('resize', () => {
                 const newVisibleSlides = window.innerWidth < 640 ? 1 : 3;
                 if (newVisibleSlides !== visibleSlides) {
@@ -510,11 +538,11 @@
                     updateCarousel(true);
                 }
             });
-    
+
             function updateCarousel(instant = false) {
                 const slideWidthPercentage = 100 / visibleSlides;
                 const offset = (currentIndex + visibleSlides) * slideWidthPercentage * -1;
-                
+
                 if (instant) {
                     carousel.style.transition = 'none';
                     carousel.style.transform = `translateX(${offset}%)`;
@@ -524,17 +552,17 @@
                 } else {
                     carousel.style.transform = `translateX(${offset}%)`;
                 }
-    
+
                 indicators.forEach((indicator, index) => {
                     indicator.classList.toggle('bg-[#E3342F]', index === (currentIndex % totalSlides));
                     indicator.classList.toggle('bg-gray-300', index !== (currentIndex % totalSlides));
                 });
-    
+
                 const slides = carousel.children;
                 Array.from(slides).forEach((slide, index) => {
                     slide.classList.remove('active-slide', 'inactive-slide');
                     const slidePosition = index - (currentIndex + visibleSlides);
-    
+
                     if (visibleSlides === 3) {
                         if (slidePosition === 1) {
                             slide.classList.add('active-slide');
@@ -547,7 +575,7 @@
                         }
                     }
                 });
-    
+
                 if (!instant && (currentIndex >= totalSlides || currentIndex < 0)) {
                     setTimeout(() => {
                         currentIndex = currentIndex >= totalSlides ? 0 : totalSlides - 1;
@@ -555,51 +583,51 @@
                     }, 500);
                 }
             }
-    
+
             function handleNavigation(direction) {
                 if (isAnimating) return;
                 isAnimating = true;
-                
+
                 currentIndex += direction;
                 updateCarousel();
-                
+
                 setTimeout(() => {
                     isAnimating = false;
                 }, 500);
             }
-    
+
             function goToSlide(index) {
                 if (isAnimating) return;
                 isAnimating = true;
-                
+
                 currentIndex = index;
                 updateCarousel();
-                
+
                 setTimeout(() => {
                     isAnimating = false;
                 }, 500);
             }
-    
+
             // Fonction pour l'auto-défilement basé sur les points
             function autoSlide() {
                 if (isAnimating) return;
                 currentIndex = (currentIndex + 1) % totalSlides; // Passe au slide suivant (0 à 5)
                 goToSlide(currentIndex);
             }
-    
+
             document.getElementById('next').addEventListener('click', () => handleNavigation(1));
             document.getElementById('prev').addEventListener('click', () => handleNavigation(-1));
-    
+
             indicators.forEach((indicator, index) => {
                 indicator.addEventListener('click', () => goToSlide(index));
             });
-    
+
             generateSlides();
             updateCarousel();
-    
+
             // Auto-slide toutes les 4 secondes
             let autoSlideInterval = setInterval(autoSlide, 4000);
-    
+
             const carouselContainer = carousel.parentElement;
             carouselContainer.addEventListener('mouseover', () => clearInterval(autoSlideInterval));
             carouselContainer.addEventListener('mouseout', () => {
@@ -610,11 +638,6 @@
 
 
 
- 
-
-
-
- 
 
 
 
@@ -622,9 +645,14 @@
 
 
 
-    
-    
-    
+
+
+
+
+
+
+
+
     <!-- SECTION CARTE BLANCHE (IMAGE & TEXTE) -->
     <!-- SECTION CARTE BLANCHE (IMAGE & TEXTE) -->
 
@@ -728,35 +756,47 @@
                     <div class="flex transition-transform duration-500 ease-in-out"
                         :style="{ transform: `translateX(-${(activeSlide - 1) * 100}%)` }">
                         <!-- Image 1 -->
-                        <div class="flex-shrink-0 w-full">
-                            <img src="{{ asset('images/livre.png') }}" alt="Livre du trésor"
-                                class="w-full h-48 object-cover hover:scale-105 transition-transform duration-300">
-                        </div>
+                        <a href="/appele">
+                            <div class="flex-shrink-0 w-full">
+                                <img src="{{ asset('images/livre.png') }}" alt="Livre du trésor"
+                                    class="w-full h-48 object-cover hover:scale-105 transition-transform duration-300">
+                            </div>
+                        </a>
                         <!-- Image 2 -->
-                        <div class="flex-shrink-0 w-full">
-                            <img src="{{ asset('images/voiture.png') }}" alt="Voiture dans la montagne"
-                                class="w-full h-48 object-cover hover:scale-105 transition-transform duration-300">
-                        </div>
+                        <a href="/appele">
+                            <div class="flex-shrink-0 w-full">
+                                <img src="{{ asset('images/voiture.png') }}" alt="Voiture dans la montagne"
+                                    class="w-full h-48 object-cover hover:scale-105 transition-transform duration-300">
+                            </div>
+                        </a>
                         <!-- Image 3 -->
-                        <div class="flex-shrink-0 w-full">
-                            <img src="{{ asset('images/lingo.png') }}" alt="Lingots d'or"
-                                class="w-full h-48 object-cover hover:scale-105 transition-transform duration-300">
-                        </div>
+                        <a href="/appele">
+                            <div class="flex-shrink-0 w-full">
+                                <img src="{{ asset('images/lingo.png') }}" alt="Lingots d'or"
+                                    class="w-full h-48 object-cover hover:scale-105 transition-transform duration-300">
+                            </div>
+                        </a>
                         <!-- Image 4 -->
-                        <div class="flex-shrink-0 w-full">
-                            <img src="{{ asset('images/lingo.png') }}" alt="Lingots d'or"
-                                class="w-full h-48 object-cover hover:scale-105 transition-transform duration-300">
-                        </div>
+                        <a href="/appele">
+                            <div class="flex-shrink-0 w-full">
+                                <img src="{{ asset('images/lingo.png') }}" alt="Lingots d'or"
+                                    class="w-full h-48 object-cover hover:scale-105 transition-transform duration-300">
+                            </div>
+                        </a>
                         <!-- Image 5 -->
-                        <div class="flex-shrink-0 w-full">
-                            <img src="{{ asset('images/livre.png') }}" alt="Livre du trésor"
-                                class="w-full h-48 object-cover hover:scale-105 transition-transform duration-300">
-                        </div>
+                        <a href="/appele">
+                            <div class="flex-shrink-0 w-full">
+                                <img src="{{ asset('images/livre.png') }}" alt="Livre du trésor"
+                                    class="w-full h-48 object-cover hover:scale-105 transition-transform duration-300">
+                            </div>
+                        </a>
                         <!-- Image 6 -->
-                        <div class="flex-shrink-0 w-full">
-                            <img src="{{ asset('images/voiture.png') }}" alt="Voiture dans la montagne"
-                                class="w-full h-48 object-cover hover:scale-105 transition-transform duration-300">
-                        </div>
+                        <a href="/appele">
+                            <div class="flex-shrink-0 w-full">
+                                <img src="{{ asset('images/voiture.png') }}" alt="Voiture dans la montagne"
+                                    class="w-full h-48 object-cover hover:scale-105 transition-transform duration-300">
+                            </div>
+                        </a>
                     </div>
 
                     <!-- Boutons de navigation -->
@@ -776,46 +816,58 @@
             <!-- Grille d'images pour ÉCRANS GRANDS -->
             <div class="hidden lg:grid grid-cols-1 xs:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
                 <!-- Image 1 -->
-                <div class="rounded-2xl overflow-hidden h-full">
-                    <img src="{{ asset('images/livre.png') }}" alt="Livre du trésor"
-                        class="w-full h-48 xs:h-52 sm:h-56 md:h-64 object-cover hover:scale-105 transition-transform duration-300">
-                </div>
+                <a href="/appele">
+                    <div class="rounded-2xl overflow-hidden h-full">
+                        <img src="{{ asset('images/livre.png') }}" alt="Livre du trésor"
+                            class="w-full h-48 xs:h-52 sm:h-56 md:h-64 object-cover hover:scale-105 transition-transform duration-300">
+                    </div>
+                </a>
 
                 <!-- Image 2 -->
-                <div class="rounded-2xl overflow-hidden h-full">
-                    <img src="{{ asset('images/voiture.png') }}" alt="Voiture dans la montagne"
-                        class="w-full h-48 xs:h-52 sm:h-56 md:h-64 object-cover hover:scale-105 transition-transform duration-300">
-                </div>
+                <a href="/appele">
+                    <div class="rounded-2xl overflow-hidden h-full">
+                        <img src="{{ asset('images/voiture.png') }}" alt="Voiture dans la montagne"
+                            class="w-full h-48 xs:h-52 sm:h-56 md:h-64 object-cover hover:scale-105 transition-transform duration-300">
+                    </div>
+                </a>
 
                 <!-- Image 3 -->
-                <div class="rounded-2xl overflow-hidden h-full">
-                    <img src="{{ asset('images/lingo.png') }}" alt="Lingots d'or"
-                        class="w-full h-48 xs:h-52 sm:h-56 md:h-64 object-cover hover:scale-105 transition-transform duration-300">
-                </div>
+                <a href="/appele">
+                    <div class="rounded-2xl overflow-hidden h-full">
+                        <img src="{{ asset('images/lingo.png') }}" alt="Lingots d'or"
+                            class="w-full h-48 xs:h-52 sm:h-56 md:h-64 object-cover hover:scale-105 transition-transform duration-300">
+                    </div>
+                </a>
 
                 <!-- Image 4 -->
-                <div class="rounded-2xl overflow-hidden h-full">
-                    <img src="{{ asset('images/lingo.png') }}" alt="Lingots d'or"
-                        class="w-full h-48 xs:h-52 sm:h-56 md:h-64 object-cover hover:scale-105 transition-transform duration-300">
-                </div>
+                <a href="/appele">
+                    <div class="rounded-2xl overflow-hidden h-full">
+                        <img src="{{ asset('images/lingo.png') }}" alt="Lingots d'or"
+                            class="w-full h-48 xs:h-52 sm:h-56 md:h-64 object-cover hover:scale-105 transition-transform duration-300">
+                    </div>
+                </a>
 
                 <!-- Image 5 -->
-                <div class="rounded-2xl overflow-hidden h-full">
-                    <img src="{{ asset('images/livre.png') }}" alt="Livre du trésor"
-                        class="w-full h-48 xs:h-52 sm:h-56 md:h-64 object-cover hover:scale-105 transition-transform duration-300">
-                </div>
+                <a href="/appele">
+                    <div class="rounded-2xl overflow-hidden h-full">
+                        <img src="{{ asset('images/livre.png') }}" alt="Livre du trésor"
+                            class="w-full h-48 xs:h-52 sm:h-56 md:h-64 object-cover hover:scale-105 transition-transform duration-300">
+                    </div>
+                </a>
 
                 <!-- Image 6 -->
-                <div class="rounded-2xl overflow-hidden h-full">
-                    <img src="{{ asset('images/voiture.png') }}" alt="Voiture dans la montagne"
-                        class="w-full h-48 xs:h-52 sm:h-56 md:h-64 object-cover hover:scale-105 transition-transform duration-300">
-                </div>
+                <a href="/appele">
+                    <div class="rounded-2xl overflow-hidden h-full">
+                        <img src="{{ asset('images/voiture.png') }}" alt="Voiture dans la montagne"
+                            class="w-full h-48 xs:h-52 sm:h-56 md:h-64 object-cover hover:scale-105 transition-transform duration-300">
+                    </div>
+                </a>
             </div>
         </div>
     </section>
 
 
-    
+
 
     <style>
         /* Assurez-vous que ces styles sont bien présents dans votre fichier */
@@ -867,7 +919,7 @@
             });
             }
             }" x-init="init()"
-            @mouseenter="stopAutoSlide()" @mouseleave="startAutoSlide()" x-intersect="isVisible = true">
+        @mouseenter="stopAutoSlide()" @mouseleave="startAutoSlide()" x-intersect="isVisible = true">
 
         <div class="container mx-auto px-4">
             <!-- Titre principal avec animations -->
@@ -894,7 +946,7 @@
                 </h3>
             </div>
 
-           
+
 
             <div class="relative overflow-hidden">
                 <div class="flex transition-transform duration-500 ease-in-out" x-ref="slider"
@@ -990,9 +1042,9 @@
         </div>
     </section>
 
-    
-    
-    
+
+
+
     <style>
         /* Animations de base */
         @keyframes slideDown {

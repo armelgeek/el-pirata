@@ -56,6 +56,11 @@ Route::get('/connexion', function () {
     return view('/connexion'); // Créez une vue 'contacte.blade.php'
 });
 
+// Fahhhhhhhh
+Route::get('/appele', function () {
+    return view('/appele'); // Créez une vue 'contacte.blade.php'
+});
+
 
 
 // ✅ Routes d'authentification pour invités
