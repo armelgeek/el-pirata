@@ -61,6 +61,11 @@ Route::get('/appele', function () {
     return view('/appele'); // Créez une vue 'contacte.blade.php'
 });
 
+// vhn
+Route::get('/chasse', function () {
+    return view('/chasse'); // Créez une vue 'chasse.blade.php'
+});
+
 
 
 // ✅ Routes d'authentification pour invités
